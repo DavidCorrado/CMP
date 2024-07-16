@@ -12,9 +12,19 @@ struct ComposeView: UIViewControllerRepresentable {
 
 struct ContentView: View {
     var body: some View {
-        ComposeView()
+        VStack {
+            ComposeView()
                 .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
+            ComposeAppTextField().ignoresSafeArea(.keyboard)
+        }
     }
 }
 
+struct ComposeAppTextField: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        MainViewControllerKt.ComposeTextField()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+}
 
