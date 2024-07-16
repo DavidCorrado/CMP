@@ -1,6 +1,8 @@
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.interop.UIKitViewController
+import androidx.compose.ui.unit.dp
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.UIKit.UIDevice
 import platform.UIKit.UIViewController
@@ -15,7 +17,7 @@ actual fun getPlatform(): Platform = IOSPlatform()
 @Composable
 actual fun AppTextField() {
     UIKitViewController(
-        modifier = Modifier,
+        modifier = Modifier.size(100.dp),
         factory = { SwiftUIViews.shared!!.getAppTextField() },
         update = {}
     )

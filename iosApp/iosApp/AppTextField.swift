@@ -12,8 +12,6 @@ struct AppTextField: View {
 }
 
 func AppTextFieldViewController() -> UIViewController {
-    let swiftUIView = VStack {
-        AppTextField()
-    }
+    let swiftUIView = AppTextField()
     return UIHostingController(rootView: swiftUIView)
 }

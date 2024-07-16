@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,6 +29,13 @@ fun App() {
             Text("Text")
             Text("Heading", modifier = Modifier.semantics { heading() })
             AppTextField()
+            var text by remember { mutableStateOf("") }
+
+            TextField(
+                value = text,
+                onValueChange = { text = it },
+                label = { Text("Label") }
+            )
             AnimatedVisibility(showContent) {
                 val greeting = remember { Greeting().greet() }
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
