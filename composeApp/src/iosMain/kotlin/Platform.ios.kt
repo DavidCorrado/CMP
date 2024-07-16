@@ -16,14 +16,14 @@ actual fun getPlatform(): Platform = IOSPlatform()
 actual fun AppTextField() {
     UIKitViewController(
         modifier = Modifier,
-        factory = { Factory.shared!!.makeController() },
+        factory = { SwiftUIViews.shared!!.getAppTextField() },
         update = {}
     )
 }
 
-interface Factory {
+interface SwiftUIViews {
     companion object {
-        var shared: Factory? = null
+        var shared: SwiftUIViews? = null
     }
-    fun makeController(): UIViewController
+    fun getAppTextField(): UIViewController
 }
